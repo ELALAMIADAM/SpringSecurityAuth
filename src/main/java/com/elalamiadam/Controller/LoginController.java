@@ -16,5 +16,11 @@ public class LoginController {
     public String getAdmin() {
         return "Welcome, admin";
     }
+
+    @GetMapping("/")
+    public String getGithub() {
+        return "Welcome, Github";
+    }
+    
     
 }
