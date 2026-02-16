@@ -33,14 +33,6 @@ public class SecurityConfig {
         ).formLogin(Customizer.withDefaults()).oauth2Login(Customizer.withDefaults()).build();
     }
 
-    @Bean
-    public UserDetailsService users(){
-        UserDetails user = User.builder().password(passwordEncoder().encode("user")).username("user").roles("USER").build();
-        UserDetails admin = User.builder().password(passwordEncoder().encode("admin")).username("admin").roles("USER","ADMIN").build();
-        return new InMemoryUserDetailsManager(user, admin);
-    }
-
-
     @Bean 
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
